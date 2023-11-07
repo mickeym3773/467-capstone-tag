@@ -122,7 +122,9 @@ From the user’s perspective, our project will allow users to build their own t
    ```sh
    npm install
    ```
-4. Run the program
+5. Create a "firebase.js" file in the /src folder, and paste in the code from the "Firebase.js Credentials" Doc on Google Drive. Check out the "firebase_example.js" file in the same folder to verify what it should look like.
+
+6. Run the program
     ```sh
     npm start
     ```
