@@ -31,13 +31,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/merlin-mallory/467-capstone-tag">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/splash_img.png" alt="Logo">
   </a>
 
 <h3 align="center">Text Adventure Game For Education</h3>
 
   <p align="center">
-    project_description
+    Our project is to build a web app that will enable users to create and play text-based games, for educational purposes. 
     <br />
     <a href="https://github.com/merlin-mallory/467-capstone-tag"><strong>Explore the docs »</strong></a>
     <br />
@@ -85,7 +85,12 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `merlin-mallory`, `467-capstone-tag`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+<h2>Introduction</h2> 
+This project will use a text game format to allow users to create games they can use for educational purposes. Users will be able to log in so that they can create a new game or edit one they previously created. Users will be able to publish their games onto a web server so it can be played by the public. 
+
+<h2>User’s Perspective</h2>
+From the user’s perspective, our project will allow users to build their own text adventure game that will gamify learning for students. They will be able to customize the game for the subject and topic they are teaching. From the student’s perspective, they will be able to select a game and use text prompts to navigate through the game. 
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,48 +98,34 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Navigate your command line to the parent directory where you want to clone this repo.
+
+2. Clone the repo via HTTPS.
    ```sh
    git clone https://github.com/merlin-mallory/467-capstone-tag.git
    ```
-3. Install NPM packages
+2. Navigate your command line into the 467-capstone-tag folder.
+
+4. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+4. Run the program
+    ```sh
+    npm start
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
