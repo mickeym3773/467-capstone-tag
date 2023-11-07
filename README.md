@@ -118,13 +118,14 @@ From the user’s perspective, our project will allow users to build their own t
    ```
 2. Navigate your command line into the 467-capstone-tag folder.
 
-4. Install NPM packages
+4. Create a "firebase.js" file in the /src folder, and paste in the code from the "Firebase.js Credentials" Doc on Google Drive. Check out the "firebase_example.js" file in the same folder to verify what it should look like.
+
+5. Install NPM packages
    ```sh
    npm install
    ```
-5. Create a "firebase.js" file in the /src folder, and paste in the code from the "Firebase.js Credentials" Doc on Google Drive. Check out the "firebase_example.js" file in the same folder to verify what it should look like.
 
-6. Run the program
+6. Run the web app.
     ```sh
     npm start
     ```
