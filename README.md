@@ -130,6 +130,22 @@ From the user’s perspective, our project will allow users to build their own t
     npm start
     ```
 
+#### Server Side Setup
+
+1. Open a new instance of the terminal, and navigate to the /server directory.
+
+2. Create ".env" file in the server directory, and paste in the .env code from "Firebase.js Credentials" Doc on Google Drive.
+
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+4. Start the server.
+    ```sh
+    npm start
+    ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
