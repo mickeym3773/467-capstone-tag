@@ -1,0 +1,48 @@
+### This file is for testing the API endpoints to the MongoDB database
+### To use this file, you must have the server running on localhost:8000
+### Click the "Send Request" button to send the request to the server
+### It works in VSCode, idk about other IDEs
+
+### Get all games to see what is currently in the database
+GET http://localhost:8000/games
+
+### Send a post request to create a new game object
+POST http://localhost:8000/games
+content-type: application/json
+
+{
+    "title": "WIZARDRY THE GAME",
+    "author": "Harry Potter",
+    "subject": "Wizardry",
+    "description": "A fake wizardry game to test POST requests to create games in the db!"
+}
+
+/// Paste the ID of the above request here
+///             654d92481fc35038357bcb63
+/// Now paste it into the requests below which use IDs
+
+### Verify the game was created - Request it by ID
+GET http://localhost:8000/games/6539c0a7877824c759550494
+
+### Search for the game by title
+GET http://localhost:8000/games?title=WIZARDRY%20THE%20GAME
+
+### Send a Patch request to find the game and update it - here we are changing the title
+PATCH http://localhost:8000/games/654d92481fc35038357bcb63
+Content-Type: application/json
+
+{
+    "title": "WIZARDRY 2: WE GO AGAIN",
+    "author": "Harry Potter",
+    "subject": "Wizardry",
+    "description": "A fake wizardry game to test POST requests to create games in the db!"
+}
+
+### Verify the game title was updated to WIZARDRY 2 - request it by ID
+GET http://localhost:8000/games/6549bffd2f279d22fb8d37e5
+
+### Delete the game by ID
+DELETE http://localhost:8000/games/6539c0a7877824c759550494
+
+### Verify the game was deleted from the DB by getting all games
+GET http://localhost:8000/games
