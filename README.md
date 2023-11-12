@@ -83,7 +83,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[!product-screenshot]
+[product-screenshot]
 
 <h2>Introduction</h2> 
 This project will use a text game format to allow users to create games they can use for educational purposes. Users will be able to log in so that they can create a new game or edit one they previously created. Users will be able to publish their games onto a web server so it can be played by the public. 
