@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/merlin-mallory/467-capstone-tag">
-    <img src="images/splash_img.png" alt="Logo">
+    <img src="src/img/splash_img.png" alt="Logo">
   </a>
 
 <h3 align="center">Text Adventure Game For Education</h3>

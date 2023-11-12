@@ -1,10 +1,10 @@
 .App {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100vh;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+  font-size: 20px;
 }
 
 .signup-form, .login-form {
@@ -21,4 +21,53 @@ input,
 .signup-button,
 .login-button {
   cursor: pointer;
+}
+
+.home-splash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.home-splash-img {
+  width: 40%;
+  height: 40%;;
+}
+
+.home-select-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.yourgames-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+form table {
+  max-width: 100%;
+}
+
+form td:first-child {
+  max-width: 200px;
+}
+
+form td:nth-child(2) {
+  max-width: 600px;
+}
+
+.createNewGame-name, .createNewGame-description {
+  width: 100%;
+}
+
+.select-room, .room-name, .room-text {
+  width: 100%;
 }
