@@ -1,27 +1,30 @@
-import { signOut } from 'firebase/auth'
-import React from 'react'
-import { auth } from '../firebase'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import splash_img from '../img/splash_img.png'
+import Header from '../components/Header';
 
-const Home = () => {
+function Home() {
+  return (
+    <div className="home-container">
+      <Header />
 
-    const user = JSON.parse(localStorage.getItem('user'))
-    const navigate = useNavigate()
-    
-    const handleLogout = async () => {
-        await signOut(auth)
-        localStorage.removeItem('token')
-        localStorage.removeItem('user')
-        navigate('/login')
-    }
+      <div className="home-splash-container">
+        <img src={splash_img} alt="Splash" className="home-splash-img" />
+      </div>
 
-    return(
-        <div>
-            <h1>Welcome to Text Adventure Game For Education!</h1>
-            <h2>{user && user.email}</h2>
-            <button onClick={handleLogout}>Logout</button>
-        </div>
-    )
+      <div className="home-select-container">
+        <h1>Choose Your Adventure!</h1>
+        <Link to="/make-games">Make Games</Link>
+        <br>
+        </br>
+        <Link to="/scroll">Play Games</Link>
+      </div>
+
+      <footer>
+        (footer content here)
+      </footer>
+    </div>
+  );
 }
 
-export default Home
+export default Home;
