@@ -83,13 +83,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[!product-screenshot]
+<div align="center">
+  <a href="https://github.com/merlin-mallory/467-capstone-tag">
+    <img src="src/img/screenshot-2023-11-12.png" alt="Logo">
+  </a>
+</div>
 
 <h2>Introduction</h2> 
 This project will use a text game format to allow users to create games they can use for educational purposes. Users will be able to log in so that they can create a new game or edit one they previously created. Users will be able to publish their games onto a web server so it can be played by the public. 
 
 <h2>User’s Perspective</h2>
-From the user’s perspective, our project will allow users to build their own text adventure game that will gamify learning for students. They will be able to customize the game for the subject and topic they are teaching. From the student’s perspective, they will be able to select a game and use text prompts to navigate through the game. 
+From the user’s perspective, our project will allow users to build their own text adventure game that will gamify learning for students. They will be able to customize the game for the subject and topic they are teaching. From the student’s perspective, they will be able to select a game and use text prompts to navigate through the game.  
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
