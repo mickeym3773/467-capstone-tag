@@ -9,10 +9,14 @@ const gameSchema = new Schema({
     },
     subject: {
         type: String,
-        required: [true, 'Subject is required']
     },
-    author: {
-        type: String, required: false
+    author_name: {
+        type: String, 
+        required: false
+    },
+    author_id: {
+        type: String,
+        required: false
     },
     is_published: {
         type: Boolean,
