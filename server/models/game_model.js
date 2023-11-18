@@ -33,6 +33,11 @@ const gameSchema = new Schema({
         required: false,
         default: Date.now
     },
+    updated_at: {
+        type: Date,
+        required: false,
+        default: Date.now
+    },
     description: {
         type: String,
         required: false,

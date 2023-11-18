@@ -46,3 +46,8 @@ DELETE http://localhost:8000/games/6539c0a7877824c759550494
 
 ### Verify the game was deleted from the DB by getting all games
 GET http://localhost:8000/games
+
+
+
+### Get all games for a specific user
+GET http://localhost:8000/games?author_id=crx8rfOzxPa17CXDUpdZaJKg3B43

@@ -21,6 +21,9 @@ import GameEditNew from './pages/GameEditNew';
 import Scroll from './pages/Scroll';
 import PlayDetails from './pages/PlayDetails';
 import PlayGame from './pages/PlayGame';
+import UsersGamesPage from './pages/UsersGamesPage';
+
+// The original static version of MakeGames.js has been commented out below and replaced with the dynamic version.
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +31,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="login" element={<Login />} />
       <Route path="loginhome" element={<LoginHome />} />
-      <Route path="make-games" element={<MakeGames />} />
+      <Route path="make-games" element={<UsersGamesPage />} /*element={<MakeGames />} *//>
       <Route path="create-new-game" element={<CreateNewGame />} />
       <Route path="game-edit602" element={<GameEdit682 />} />
       <Route path="game-edit-new" element={<GameEditNew />} />
