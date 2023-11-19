@@ -4,9 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 function CreateNewGame() {
   const [newGameName, setNewGameName] = useState('');
   const [newGameDescription, setNewGameDescription] = useState('');
+  const [newGameIsPublished, setNewGameIsPublished] = useState(false);
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const checkHandler = () => {
+    setNewGameIsPublished(!newGameIsPublished);
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,6 +20,7 @@ function CreateNewGame() {
       description: newGameDescription,
       author_id: user.uid,
       author_name: user.email,
+      is_published: newGameIsPublished,
     };
 
     if (!user) {
@@ -65,6 +71,16 @@ function CreateNewGame() {
               <td>
                 <textarea id="new-game-description" name="new-game-description" className="createNewGame-description" required maxLength="500"
                   value={newGameDescription} onChange={(event) => setNewGameDescription(event.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="is_published">Publish Game?</label>
+              </td>
+              <td>
+                <input type="checkbox" id="is_published" name="is_published" className="createNewGame-isPublished"
+                  checked={newGameIsPublished} onChange={checkHandler}
                 />
               </td>
             </tr>
