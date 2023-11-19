@@ -22,8 +22,10 @@ import Scroll from './pages/Scroll';
 import PlayDetails from './pages/PlayDetails';
 import PlayGame from './pages/PlayGame';
 import UsersGamesPage from './pages/UsersGamesPage';
+import PublishedGamesPage from './pages/PublishedGamesPage';
 
 // The original static version of MakeGames.js has been commented out below and replaced with the dynamic version.
+// The original static version of Scroll.js has been commented out below and replaced with the dynamic version.
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,7 +37,7 @@ const router = createBrowserRouter(
       <Route path="create-new-game" element={<CreateNewGame />} />
       <Route path="game-edit602" element={<GameEdit682 />} />
       <Route path="game-edit-new" element={<GameEditNew />} />
-      <Route path="scroll" element={<Scroll />} />
+      <Route path="scroll" element={<PublishedGamesPage />} /*element={<Scroll />} */ />
       <Route path="play-details" element={<PlayDetails />} />
       <Route path="play-game" element={<PlayGame />} />
       <Route path="/" element={<Protected />} >
