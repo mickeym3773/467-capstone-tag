@@ -150,7 +150,7 @@ From the user’s perspective, our project will allow users to build their own t
     npm start
     ```
 
-### Deploying Frontend Prod
+### Installing and Deploying Frontend Prod
 
 1. Install Firebase CLI.
   ```sh
