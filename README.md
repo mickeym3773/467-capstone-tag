@@ -170,7 +170,7 @@ From the user’s perspective, our project will allow users to build their own t
   ```
 
 5. Navigate to the root folder, and deploy the changes to the app.
-   Note: You can ignore the "build failed" error message in Github for now, automatic builds are not set up yet. This command will manually deploy your directory to prod.
+   Note: You can ignore the "build failed" error message in Github for now, automatic builds are not set up yet. This command will manually deploy your current directory to prod. Please make sure to pull master before doing this.
   ```sh
   firebase deploy --only hosting
   ```
