@@ -112,7 +112,7 @@ From the user’s perspective, our project will allow users to build their own t
 <!-- GETTING STARTED -->
 
 
-### Installation
+### Frontend Dev Installation
 
 1. Navigate your command line to the parent directory where you want to clone this repo.
 
@@ -122,7 +122,7 @@ From the user’s perspective, our project will allow users to build their own t
    ```
 2. Navigate your command line into the 467-capstone-tag folder.
 
-4. Create a "firebase.js" file in the /src folder, and paste in the code from the "Firebase.js Credentials" Doc on Google Drive. Check out the "firebase_example.js" file in the same folder to verify what it should look like.
+4. Create a "firebase.js" file in the /src folder, and paste in the code from the "Firebase.js Credentials & DB Access" Doc on Google Drive. Check out the "firebase_example.js" file in the same folder to verify what it should look like.
 
 5. Install NPM packages
    ```sh
@@ -134,7 +134,7 @@ From the user’s perspective, our project will allow users to build their own t
     npm start
     ```
 
-#### Server Side Setup
+#### Backend Dev Installation
 
 1. Open a new instance of the terminal, and navigate to the /server directory.
 
@@ -151,6 +151,32 @@ From the user’s perspective, our project will allow users to build their own t
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+#### Frontend Prod Deployment
+
+1. Install Firebase CLI.
+  ```sh
+  brew install firebase-cli
+  ```
+
+2. Navigate to the root directory, and login to Firebase using the project's username and password (see Firebase Credentials & DB access doc).
+  ```sh
+  firebase login
+  ```
+
+3. This should prompt your browser to log into the project's gmail account. Finish that, and you should get a success message in the console.
+
+4. Build the app
+  ```
+  npm run build
+  ```
+
+5. Deploy the changes to the app.
+  ```sh
+  firebase deploy --only hosting
+  ```
+
+
 
 
 
