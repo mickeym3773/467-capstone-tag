@@ -42,7 +42,7 @@
     <a href="https://github.com/merlin-mallory/467-capstone-tag"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/merlin-mallory/467-capstone-tag">View Demo</a>
+    <a href="https://text-adventure-game-for-ed.web.app/">View Demo</a>
     ·
     <a href="https://github.com/merlin-mallory/467-capstone-tag/issues">Report Bug</a>
     ·
@@ -85,7 +85,7 @@
 
 <div align="center">
   <a href="https://github.com/merlin-mallory/467-capstone-tag">
-    <img src="src/img/Screenshot 2023-11-21.png" alt="Logo">
+    <a href="https://text-adventure-game-for-ed.web.app/"><img src="src/img/Screenshot 2023-11-21.png" alt="Logo"></a>
   </a>
 </div>
 
