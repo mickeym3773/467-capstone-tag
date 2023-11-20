@@ -1,11 +1,28 @@
 import React from 'react';
-import AuthBox from './AuthBox.jsx'; // Replace with the correct path to your Auth component
+import { useState, useEffect } from 'react';
+import AuthBoxLoggedOut from './AuthBoxLoggedOut.jsx';
+import AuthBoxLoggedIn from './AuthBoxLoggedIn.jsx';
 
 function Header() {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+
+  useEffect(() => {
+    // Refresh the component whenever the localStorage user data changes.
+    const handleStorageChange = () => {
+      setUser(JSON.parse(localStorage.getItem('user')))
+    }
+
+    window.addEventListener('storage', handleStorageChange)
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+  }, [])
+
   return (
     <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <h1>Text Adventure Game For Education</h1>
-      <AuthBox />
+      {user && user.email ? <AuthBoxLoggedIn user={user} setUser={setUser} /> : <AuthBoxLoggedOut />} 
     </header>
   );
 }

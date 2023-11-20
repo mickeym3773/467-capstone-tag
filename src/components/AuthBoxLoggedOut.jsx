@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function AuthBox() {
+function AuthBoxLoggedOut() {
   return (
     <nav>
-      <Link to="/loginhome">Login Home</Link>
-      <br />
       <Link to="/login">Login</Link>
       <br />
-      <Link to="/signup">Sign Up</Link>
+      <Link to="/signup">Register</Link>
     </nav>
   );
 }
 
-export default AuthBox;
+export default AuthBoxLoggedOut;

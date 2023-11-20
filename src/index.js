@@ -30,6 +30,7 @@ import PublishedGamesPage from './pages/PublishedGamesPage';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
+      <Route index element={<Home />} />
       <Route path="signup" element={<Signup />} />
       <Route path="login" element={<Login />} />
       <Route path="loginhome" element={<LoginHome />} />
@@ -40,10 +41,10 @@ const router = createBrowserRouter(
       <Route path="scroll" element={<PublishedGamesPage />} /*element={<Scroll />} */ />
       <Route path="play-details" element={<PlayDetails />} />
       <Route path="play-game" element={<PlayGame />} />
-      <Route path="/" element={<Protected />} >
-        <Route path="/" index element={<Home />} />
+      {/* <Route path="/" element={<Home />} > */}
+        {/* <Route path="/" index element={<Home />} /> */}
         {/* <Route path="/" index element={<LoginHome />} /> */}
-      </Route>
+      {/* </Route> */}
     </Route>
   )
 )
