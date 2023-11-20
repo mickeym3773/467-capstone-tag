@@ -150,8 +150,6 @@ From the user’s perspective, our project will allow users to build their own t
     npm start
     ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Deploying Frontend Prod
 
 1. Install Firebase CLI.
@@ -176,7 +174,7 @@ From the user’s perspective, our project will allow users to build their own t
   firebase deploy --only hosting
   ```
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
