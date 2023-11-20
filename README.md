@@ -85,7 +85,7 @@
 
 <div align="center">
   <a href="https://github.com/merlin-mallory/467-capstone-tag">
-    <img src="src/img/screenshot-2023-11-12.png" alt="Logo">
+    <img src="src/img/Screenshot 2023-11-21.png" alt="Logo">
   </a>
 </div>
 
@@ -112,7 +112,7 @@ From the user’s perspective, our project will allow users to build their own t
 <!-- GETTING STARTED -->
 
 
-### Frontend Dev Installation
+### Installing and Running Frontend Dev
 
 1. Navigate your command line to the parent directory where you want to clone this repo.
 
@@ -134,7 +134,7 @@ From the user’s perspective, our project will allow users to build their own t
     npm start
     ```
 
-#### Backend Dev Installation
+### Installing and Running Backend Dev
 
 1. Open a new instance of the terminal, and navigate to the /server directory.
 
@@ -152,7 +152,7 @@ From the user’s perspective, our project will allow users to build their own t
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Frontend Prod Deployment
+### Deploying Frontend Prod
 
 1. Install Firebase CLI.
   ```sh
