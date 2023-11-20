@@ -164,12 +164,13 @@ From the user’s perspective, our project will allow users to build their own t
 
 3. This should prompt your browser to log into the project's gmail account. Finish that, and you should get a success message in the console.
 
-4. Build the app
+4. Navigate to the root folder, and build the app
   ```
   npm run build
   ```
 
-5. Deploy the changes to the app.
+5. Navigate to the root folder, and deploy the changes to the app.
+   Note: You can ignore the "build failed" error message in Github for now, automatic builds are not set up yet. This command will manually deploy your directory to prod.
   ```sh
   firebase deploy --only hosting
   ```
