@@ -1,123 +1,167 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function GameEdit() {
-    const gameId = useParams();
-    const user = JSON.parse(localStorage.getItem('user'));
-    const initGame = JSON.parse(localStorage.getItem('game'));
-   const [game, setGame] = useState(initGame.game.rooms);
+   const { gameId } = useParams();
+   const navigate = useNavigate();
+   const user = JSON.parse(localStorage.getItem('user'));
+
+   const [gameRooms, setGameRooms] = useState([]);
+   const [selectedRoomIndex, setSelectedRoomIndex] = useState(null);
+   const [gameDetails, setGameDetails] = useState(null);
+
+   useEffect(() => {
+      const fetchGameDetails = async () => {
+         try {
+            const response = await fetch(`/games/details/${gameId}`);
+            if (!response.ok) {
+               throw new Error('Failed to fetch game details');
+            }
+
+            const data = await response.json();
+            setGameDetails(data);
+            setGameRooms(data.game.rooms);
+         } catch (error) {
+            console.error(error.message);
+         }
+      };
+
+      fetchGameDetails();
+   }, [gameId]);
 
    const handleFieldChange = (roomIndex, field, value) => {
-      setGame((prevGame) => {
-         const updatedGame = [...prevGame];
-         updatedGame[roomIndex] = {
-            ...updatedGame[roomIndex],
+      setGameRooms((prevRooms) => {
+         const updatedRooms = [...prevRooms];
+         updatedRooms[roomIndex] = {
+            ...updatedRooms[roomIndex],
             [field]: value,
          };
-         return updatedGame;
+         return updatedRooms;
       });
    };
 
    const addRoom = () => {
+      const newRoomNumber = gameRooms.length + 1;
       const newRoom = {
-         name: 'New Room',
+         name: `New Room ${newRoomNumber}`,
          description: 'None provided - This is a description of the room.',
          first_visit: 'This is a description that is displayed the first time the player enters the room.',
          Items: '',
-         Exits: ''
+         Exits: '',
       };
-      setGame((prevGame) => [...prevGame, newRoom]);
+      setGameRooms((prevRooms) => [...prevRooms, newRoom]);
    };
 
    const clearField = (roomIndex, field) => {
-      setGame((prevGame) => {
-         const updatedGame = [...prevGame];
-         updatedGame[roomIndex] = {
-            ...updatedGame[roomIndex],
+      setGameRooms((prevRooms) => {
+         const updatedRooms = [...prevRooms];
+         updatedRooms[roomIndex] = {
+            ...updatedRooms[roomIndex],
             [field]: '',
          };
-         return updatedGame;
+         return updatedRooms;
       });
    };
 
    const deleteRoom = (roomIndex) => {
-      setGame((prevGame) => prevGame.filter((_, index) => index !== roomIndex));
+      setGameRooms((prevRooms) => prevRooms.filter((_, index) => index !== roomIndex));
+      setSelectedRoomIndex(null); // Reset selected room when deleting
    };
 
    const handleSubmit = async (e) => {
       e.preventDefault();
 
-
       try {
-        const response = await fetch(`/games/${gameId.gameId}`, {
-           method: 'PUT', 
-           body: JSON.stringify({ game: { rooms: game } }),
-        });
+         console.log(`/games/${gameDetails._id}`);
+         const response = await fetch(`/games/${gameDetails._id}`, {
+            method: 'PATCH',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ game: { rooms: gameRooms } }),
+         });
 
-        if (!response.ok) {
-           throw new Error('Failed to update data in the database');
-        }
+         if (!response.ok) {
+            throw new Error('Failed to update data in the database');
+         }
 
-        console.log('Data successfully updated in the database');
-     } catch (error) {
-        console.error(error.message);
-     }
-
-
-      if (!user) {
-        alert('You must be logged in to create a new game.');
-        return;
+         console.log('Data successfully updated in the database');
+      } catch (error) {
+         console.error(error.message);
       }
 
-      localStorage.setItem('game', JSON.stringify({ game: { rooms: game } }));
+      if (!user) {
+         alert('You must be logged in to create a new game.');
+         return;
+      }
+
+      // Redirect to the game details page
+      navigate(`/games/details/${gameId}`);
+
+      localStorage.setItem('game', JSON.stringify({ game: { rooms: gameRooms } }));
    };
 
-   
-   const renderForm = () => {
-      return game.map((room, roomIndex) => (
-         <div key={roomIndex}>
-            <h3>Room {roomIndex + 1}</h3>
-            {Object.keys(room).map((field) => (
-               <div key={`${roomIndex}-${field}`}>
-                  <label htmlFor={`${roomIndex}-${field}`}>{field}</label>
-                  {(field === 'description' || field === 'first_visit') ? (
+   const handleRoomButtonClick = (roomIndex) => {
+      setSelectedRoomIndex(roomIndex);
+   };
+
+   const renderRoomButtons = () => {
+      return gameRooms.map((room, roomIndex) => (
+         <button key={roomIndex} onClick={() => handleRoomButtonClick(roomIndex)}>
+            {room.name}
+         </button>
+      ));
+   };
+
+   const renderSelectedRoomForm = () => {
+      const selectedRoom = gameRooms[selectedRoomIndex];
+      if (!selectedRoom) {
+         return null;
+      }
+
+      return (
+         <div className="yourgames-container">
+            <h3>{selectedRoom.name}</h3>
+            {Object.keys(selectedRoom).map((field) => (
+               <div key={`${selectedRoomIndex}-${field}`}>
+                  <label htmlFor={`${selectedRoomIndex}-${field}`}>{field}</label>
+                  {field === 'description' || field === 'first_visit' ? (
                      <textarea
-                        rows="4" cols="50"
-                        id={`${roomIndex}-${field}`}
-                        value={room[field]}
-                        onChange={(e) => handleFieldChange(roomIndex, field, e.target.value)}
+                        rows="4"
+                        cols="50"
+                        id={`${selectedRoomIndex}-${field}`}
+                        value={selectedRoom[field]}
+                        onChange={(e) => handleFieldChange(selectedRoomIndex, field, e.target.value)}
                      />
                   ) : (
                      <input
                         type="text"
-                        id={`${roomIndex}-${field}`}
-                        value={room[field]}
-                        onChange={(e) => handleFieldChange(roomIndex, field, e.target.value)}
+                        id={`${selectedRoomIndex}-${field}`}
+                        value={selectedRoom[field]}
+                        onChange={(e) => handleFieldChange(selectedRoomIndex, field, e.target.value)}
                      />
                   )}
-                  <button type="button" onClick={() => clearField(roomIndex, field)}>
+                  <button type="button" onClick={() => clearField(selectedRoomIndex, field)}>
                      Clear
                   </button>
                </div>
             ))}
-            <button type="button" onClick={() => deleteRoom(roomIndex)}>
+            <button type="button" onClick={() => deleteRoom(selectedRoomIndex)}>
                Delete Room
             </button>
          </div>
-      ));
+      );
    };
 
-    return (
+   return (
       <div className="yourgames-container">
+         <div className="room-buttons-container">{renderRoomButtons()}</div>
+         <div className="selected-room-form-container">{renderSelectedRoomForm()}</div>
          <form onSubmit={handleSubmit}>
-            {renderForm()}
             <button type="button" onClick={addRoom}>
                Add Room
             </button>
-            <button type="submit">
-               Save
-            </button>
+            <button type="submit">Save</button>
          </form>
       </div>
    );
